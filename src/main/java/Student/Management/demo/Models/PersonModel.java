@@ -17,7 +17,7 @@ public class PersonModel {
     @Id
     //The ID here will be generated automatically
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer userID;
+    private Long userID;
     private String userName;
     private String email;
     private String password;

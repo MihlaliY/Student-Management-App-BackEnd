@@ -13,7 +13,7 @@ public class StudentModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer studentID;
+    private Long studentID;
     private String studentName;
     private String course;
     private String email;

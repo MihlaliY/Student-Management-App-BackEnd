@@ -16,6 +16,6 @@ import lombok.Setter;
 public class CoursesModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer courseID;
+    private Long courseID;
     private String courseName;
 }
