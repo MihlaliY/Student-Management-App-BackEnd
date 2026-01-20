@@ -18,13 +18,13 @@ public class StudentModel {
     private String course;
     private String email;
 
-    @OneToMany(
-            mappedBy = "Person",
-            cascade = CascadeType.ALL)
-   @JoinColumn(name = "userID")
+    // One person/admin can add/have many students
+    @ManyToOne
+    @JoinColumn(name = "personID")
     private PersonModel person;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    // One course can belong to many students
+    @ManyToOne
     @JoinColumn(name = "courseID")
     private CoursesModel courses;
 }

@@ -5,6 +5,11 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 //This will map the object to postgres creating the table
 @Entity
 @Table(name = "person")
@@ -21,4 +26,7 @@ public class PersonModel {
     private String userName;
     private String email;
     private String password;
+
+    @OneToMany(mappedBy = "person")
+    Set<StudentModel> students = new HashSet<>();
 }
