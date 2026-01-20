@@ -22,6 +22,7 @@ public class StudentService {
     // edit/Update
     public StudentModel updateStudent(Long id, StudentModel updatedStudent) {
 
+        //Throw error when student is not foound
         StudentModel studentModel = studentRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Student not found"));
 

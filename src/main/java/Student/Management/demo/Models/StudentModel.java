@@ -15,16 +15,13 @@ public class StudentModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long studentID;
     private String studentName;
-    private String course;
     private String email;
 
-    @OneToMany(
-            mappedBy = "Person",
-            cascade = CascadeType.ALL)
-   @JoinColumn(name = "userID")
+    @ManyToOne
+    @JoinColumn(name = "personID")
     private PersonModel person;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "courseID")
     private CoursesModel courses;
 }
