@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 //This will map the object to postgres creating the table
 @Entity
 @Table(name = "person")
@@ -21,4 +23,7 @@ public class PersonModel {
     private String userName;
     private String email;
     private String password;
+
+    @OneToMany(mappedBy = "person")
+    private List<StudentModel> studentModelList;
 }
