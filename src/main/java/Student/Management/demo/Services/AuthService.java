@@ -19,7 +19,7 @@ public class AuthService {
         if (personRepo.findByEmail(email).isPresent()) {
             throw new RuntimeException("User already exists");
         }
-
+//instantiate this because Models cannot be injected like services.
         PersonModel person = new PersonModel();
         person.setUserName(name);
         person.setEmail(email);
