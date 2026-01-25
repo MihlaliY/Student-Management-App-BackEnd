@@ -1,13 +1,15 @@
 package Student.Management.demo.Controllers;
 
 import Student.Management.demo.Models.StudentModel;
-import Student.Management.demo.Repository.StudentRepo;
+
 import Student.Management.demo.Services.StudentService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
+@RequestMapping("/students")
 public class StudentController {
 
     private final StudentService studentService;
@@ -16,8 +18,13 @@ public class StudentController {
         this.studentService = studentService;
     }
 
+    //Read all the students
+    @GetMapping
+    public List<StudentModel> getStudents(){
+        return studentService.getAllStudents();
+    }
     //add/create student
-    @PostMapping("/students")
+    @PostMapping
     public StudentModel addStudent(@RequestBody StudentModel studentModel) {
         return studentService.addStudent(studentModel);
     }
@@ -30,7 +37,7 @@ public class StudentController {
 
     // delete specific student
     @DeleteMapping("/{id}")
-    public void deleteStudent(Long id){
+    public void deleteStudent(@PathVariable Long id){
         studentService.deleteStudent(id);
     }
 

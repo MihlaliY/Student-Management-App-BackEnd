@@ -4,14 +4,22 @@ import Student.Management.demo.Models.StudentModel;
 import Student.Management.demo.Repository.StudentRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudentService {
 
-    // Repo dependency injection. Final meaning it can't be changeed
+    // Repo dependency injection. Final meaning it can't be changeed/ reassigned
     private final StudentRepo studentRepo;
 
     public StudentService(StudentRepo studentRepo) {
         this.studentRepo = studentRepo;
+    }
+
+    //Read all students
+
+    public List<StudentModel> getAllStudents(){
+        return studentRepo.findAll();
     }
 
     // add student function
